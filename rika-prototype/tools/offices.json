@@ -1,0 +1,743 @@
+[
+  {
+    "id": "astana-office",
+    "city": {
+      "ru": "Астана",
+      "kk": "Астана",
+      "en": "Astana"
+    },
+    "type": {
+      "ru": "Офис",
+      "kk": "Кеңсе",
+      "en": "Office"
+    },
+    "address": {
+      "ru": "ул. Тараса Шевченко, 8/1, ВП-4",
+      "kk": "Тарас Шевченко көш., 8/1, ВП-4",
+      "en": "8/1 Taras Shevchenko St., unit VP-4"
+    },
+    "phone": "+77172270300",
+    "displayPhone": "+7-7172-270-300",
+    "email": "info@rika.kz",
+    "hours": {
+      "ru": "Пн–Пт 09:00–18:00; Сб 09:30–14:00",
+      "kk": "Дс–Жм 09:00–18:00; Сб 09:30–14:00",
+      "en": "Mon–Fri 09:00–18:00; Sat 09:30–14:00"
+    },
+    "region": "north",
+    "additionalPhones": [
+      {
+        "phone": "+77015317608",
+        "displayPhone": "+7-701-531-76-08"
+      },
+      {
+        "phone": "+77013952844",
+        "displayPhone": "+7-701-395-28-44"
+      }
+    ]
+  },
+  {
+    "id": "astana-shevchenko",
+    "city": {
+      "ru": "Астана",
+      "kk": "Астана",
+      "en": "Astana"
+    },
+    "type": {
+      "ru": "Пункт приёма и выдачи",
+      "kk": "Қабылдау және беру пункті",
+      "en": "Drop-off & pickup point"
+    },
+    "address": {
+      "ru": "ул. Тараса Шевченко, 8/1, ВП-4",
+      "kk": "Тарас Шевченко көш., 8/1, ВП-4",
+      "en": "8/1 Taras Shevchenko St., unit VP-4"
+    },
+    "phone": "+77014858350",
+    "displayPhone": "+7-701-485-83-50",
+    "hours": {
+      "ru": "Ежедневно 09:00–21:00",
+      "kk": "Күн сайын 09:00–21:00",
+      "en": "Daily 09:00–21:00"
+    },
+    "region": "north",
+    "additionalPhones": [
+      {
+        "phone": "+77172270300",
+        "displayPhone": "+7-7172-270-300"
+      }
+    ]
+  },
+  {
+    "id": "astana-nazhimedenov",
+    "city": {
+      "ru": "Астана",
+      "kk": "Астана",
+      "en": "Astana"
+    },
+    "type": {
+      "ru": "Пункт приёма и выдачи",
+      "kk": "Қабылдау және беру пункті",
+      "en": "Drop-off & pickup point"
+    },
+    "address": {
+      "ru": "ул. Нажимеденова, 28",
+      "kk": "Нәжімеденов көш., 28",
+      "en": "28 Nazhimedenov St."
+    },
+    "phone": "+77789968459",
+    "displayPhone": "+7-778-996-84-59",
+    "hours": {
+      "ru": "Ежедневно 09:00–21:00",
+      "kk": "Күн сайын 09:00–21:00",
+      "en": "Daily 09:00–21:00"
+    },
+    "region": "north",
+    "additionalPhones": []
+  },
+  {
+    "id": "almaty-office",
+    "city": {
+      "ru": "Алматы",
+      "kk": "Алматы",
+      "en": "Almaty"
+    },
+    "type": {
+      "ru": "Офис",
+      "kk": "Кеңсе",
+      "en": "Office"
+    },
+    "address": {
+      "ru": "ул. Грибоедова, 80, офис 6",
+      "kk": "Грибоедов көш., 80, 6-кеңсе",
+      "en": "80 Griboyedov St., office 6"
+    },
+    "phone": "+77273393300",
+    "displayPhone": "+7-7273-393-300",
+    "email": "ala@rika.kz",
+    "hours": {
+      "ru": "Пн–Пт 09:00–18:00; Сб 09:30–14:00",
+      "kk": "Дс–Жм 09:00–18:00; Сб 09:30–14:00",
+      "en": "Mon–Fri 09:00–18:00; Sat 09:30–14:00"
+    },
+    "region": "south",
+    "additionalPhones": [
+      {
+        "phone": "+77273831554",
+        "displayPhone": "+7-7273-831-554"
+      },
+      {
+        "phone": "+77015317609",
+        "displayPhone": "+7-701-531-76-09"
+      },
+      {
+        "phone": "+77019813765",
+        "displayPhone": "+7-701-981-37-65"
+      },
+      {
+        "phone": "+77014850970",
+        "displayPhone": "+7-701-485-09-70"
+      },
+      {
+        "phone": "+77015317611",
+        "displayPhone": "+7-701-531-76-11"
+      }
+    ]
+  },
+  {
+    "id": "almaty-griboyedov",
+    "city": {
+      "ru": "Алматы",
+      "kk": "Алматы",
+      "en": "Almaty"
+    },
+    "type": {
+      "ru": "Пункт приёма и выдачи",
+      "kk": "Қабылдау және беру пункті",
+      "en": "Drop-off & pickup point"
+    },
+    "address": {
+      "ru": "ул. Грибоедова, 80, офис 6",
+      "kk": "Грибоедов көш., 80, 6-кеңсе",
+      "en": "80 Griboyedov St., office 6"
+    },
+    "phone": "+77015317613",
+    "displayPhone": "+7-701-531-76-13",
+    "hours": {
+      "ru": "Ежедневно 09:00–21:00",
+      "kk": "Күн сайын 09:00–21:00",
+      "en": "Daily 09:00–21:00"
+    },
+    "region": "south",
+    "additionalPhones": [
+      {
+        "phone": "+77273831828",
+        "displayPhone": "+7-7273-831-828"
+      }
+    ]
+  },
+  {
+    "id": "almaty-manas",
+    "city": {
+      "ru": "Алматы",
+      "kk": "Алматы",
+      "en": "Almaty"
+    },
+    "type": {
+      "ru": "Пункт приёма и выдачи",
+      "kk": "Қабылдау және беру пункті",
+      "en": "Drop-off & pickup point"
+    },
+    "address": {
+      "ru": "ул. Манаса, 24А",
+      "kk": "Манас көш., 24А",
+      "en": "24A Manas St."
+    },
+    "phone": "+77018132070",
+    "displayPhone": "+7-701-813-20-70",
+    "hours": {
+      "ru": "Ежедневно 09:00–21:00",
+      "kk": "Күн сайын 09:00–21:00",
+      "en": "Daily 09:00–21:00"
+    },
+    "region": "south",
+    "additionalPhones": []
+  },
+  {
+    "id": "almaty-kunayev",
+    "city": {
+      "ru": "Алматы",
+      "kk": "Алматы",
+      "en": "Almaty"
+    },
+    "type": {
+      "ru": "Пункт приёма и выдачи",
+      "kk": "Қабылдау және беру пункті",
+      "en": "Drop-off & pickup point"
+    },
+    "address": {
+      "ru": "ул. Кунаева, 163, ТД «Восход», бутик 47",
+      "kk": "Қонаев көш., 163, «Восход» сауда үйі, 47-бутик",
+      "en": "163 Kunayev St., Voskhod retail centre, unit 47"
+    },
+    "phone": "+77013481505",
+    "displayPhone": "+7-701-348-15-05",
+    "hours": {
+      "ru": "Пн–Сб 11:00–20:00; Вс 11:00–19:00",
+      "kk": "Дс–Сб 11:00–20:00; Жс 11:00–19:00",
+      "en": "Mon–Sat 11:00–20:00; Sun 11:00–19:00"
+    },
+    "region": "south",
+    "additionalPhones": []
+  },
+  {
+    "id": "almaty-aymanov",
+    "city": {
+      "ru": "Алматы",
+      "kk": "Алматы",
+      "en": "Almaty"
+    },
+    "type": {
+      "ru": "Пункт приёма и выдачи",
+      "kk": "Қабылдау және беру пункті",
+      "en": "Drop-off & pickup point"
+    },
+    "address": {
+      "ru": "ул. Айманова, 126, БЦ «Time», бутик 101А",
+      "kk": "Айманов көш., 126, «Time» бизнес орталығы, 101А-бутик",
+      "en": "126 Aymanov St., Time business centre, unit 101A"
+    },
+    "phone": "+77013029894",
+    "displayPhone": "+7-701-302-98-94",
+    "hours": {
+      "ru": "Ежедневно 09:00–21:00",
+      "kk": "Күн сайын 09:00–21:00",
+      "en": "Daily 09:00–21:00"
+    },
+    "region": "south",
+    "additionalPhones": []
+  },
+  {
+    "id": "almaty-seifullin",
+    "city": {
+      "ru": "Алматы",
+      "kk": "Алматы",
+      "en": "Almaty"
+    },
+    "type": {
+      "ru": "Пункт приёма и выдачи",
+      "kk": "Қабылдау және беру пункті",
+      "en": "Drop-off & pickup point"
+    },
+    "address": {
+      "ru": "пр-т Сейфуллина, 468",
+      "kk": "Сейфуллин даңғ., 468",
+      "en": "468 Seifullin Ave."
+    },
+    "phone": "+77013952809",
+    "displayPhone": "+7-701-395-28-09",
+    "hours": {
+      "ru": "Ежедневно 09:00–20:00",
+      "kk": "Күн сайын 09:00–20:00",
+      "en": "Daily 09:00–20:00"
+    },
+    "region": "south",
+    "additionalPhones": []
+  },
+  {
+    "id": "boralday-abylai",
+    "city": {
+      "ru": "Боралдай",
+      "kk": "Боралдай",
+      "en": "Boralday"
+    },
+    "type": {
+      "ru": "Пункт приёма и выдачи",
+      "kk": "Қабылдау және беру пункті",
+      "en": "Drop-off & pickup point"
+    },
+    "address": {
+      "ru": "мкр. Водник-2, рынок «Халык», ул. Абылай хана, 18г",
+      "kk": "Водник-2 шағынауд., «Халық» базары, Абылай хан көш., 18г",
+      "en": "Vodnik-2 district, Halyk market, 18g Abylai Khan St."
+    },
+    "phone": "+77014858367",
+    "displayPhone": "+7-701-485-83-67",
+    "hours": {
+      "ru": "Ежедневно 08:00–21:00",
+      "kk": "Күн сайын 08:00–21:00",
+      "en": "Daily 08:00–21:00"
+    },
+    "region": "south",
+    "additionalPhones": []
+  },
+  {
+    "id": "aktau-office",
+    "city": {
+      "ru": "Актау",
+      "kk": "Ақтау",
+      "en": "Aktau"
+    },
+    "type": {
+      "ru": "Офис и пункт выдачи",
+      "kk": "Кеңсе және беру пункті",
+      "en": "Office & pickup point"
+    },
+    "address": {
+      "ru": "мкр. 2, зд. 47Б, БЦ «Сункар», офис 110",
+      "kk": "2-шағынауд., 47Б ғимарат, «Сұңқар» бизнес орталығы, 110-кеңсе",
+      "en": "District 2, building 47B, Sunkar business centre, office 110"
+    },
+    "phone": "+77292545209",
+    "displayPhone": "+7-7292-545-209",
+    "email": "scoh@rika.kz",
+    "hours": {
+      "ru": "Пн–Пт 09:00–18:00; Сб 09:30–14:00",
+      "kk": "Дс–Жм 09:00–18:00; Сб 09:30–14:00",
+      "en": "Mon–Fri 09:00–18:00; Sat 09:30–14:00"
+    },
+    "region": "west",
+    "additionalPhones": [
+      {
+        "phone": "+77016486629",
+        "displayPhone": "+7-701-648-66-29"
+      },
+      {
+        "phone": "+77017812320",
+        "displayPhone": "+7-701-781-23-20"
+      }
+    ]
+  },
+  {
+    "id": "aktau-district19",
+    "city": {
+      "ru": "Актау",
+      "kk": "Ақтау",
+      "en": "Aktau"
+    },
+    "type": {
+      "ru": "Пункт приёма и выдачи",
+      "kk": "Қабылдау және беру пункті",
+      "en": "Drop-off & pickup point"
+    },
+    "address": {
+      "ru": "мкр. 19, зд. 5, блок Д, бутик 58",
+      "kk": "19-шағынауд., 5-ғимарат, Д блогы, 58-бутик",
+      "en": "District 19, building 5, block D, unit 58"
+    },
+    "phone": "+77789968467",
+    "displayPhone": "+7-778-996-84-67",
+    "email": "scoh@rika.kz",
+    "hours": {
+      "ru": "Ежедневно 10:00–20:00",
+      "kk": "Күн сайын 10:00–20:00",
+      "en": "Daily 10:00–20:00"
+    },
+    "region": "west",
+    "additionalPhones": []
+  },
+  {
+    "id": "aktobe-office",
+    "city": {
+      "ru": "Актобе",
+      "kk": "Ақтөбе",
+      "en": "Aktobe"
+    },
+    "type": {
+      "ru": "Офис и пункт выдачи",
+      "kk": "Кеңсе және беру пункті",
+      "en": "Office & pickup point"
+    },
+    "address": {
+      "ru": "ул. Маресьева, 80/2, офис 15А",
+      "kk": "Маресьев көш., 80/2, 15А-кеңсе",
+      "en": "80/2 Maresyev St., office 15A"
+    },
+    "phone": "+77132444080",
+    "displayPhone": "+7-7132-444-080",
+    "email": "akxh@rika.kz",
+    "hours": {
+      "ru": "Пн–Пт 09:00–18:00; Сб 09:30–14:00",
+      "kk": "Дс–Жм 09:00–18:00; Сб 09:30–14:00",
+      "en": "Mon–Fri 09:00–18:00; Sat 09:30–14:00"
+    },
+    "region": "west",
+    "additionalPhones": [
+      {
+        "phone": "+77010814098",
+        "displayPhone": "+7-701-081-40-98"
+      }
+    ]
+  },
+  {
+    "id": "atyrau-office",
+    "city": {
+      "ru": "Атырау",
+      "kk": "Атырау",
+      "en": "Atyrau"
+    },
+    "type": {
+      "ru": "Офис и пункт выдачи",
+      "kk": "Кеңсе және беру пункті",
+      "en": "Office & pickup point"
+    },
+    "address": {
+      "ru": "ул. Жарбосынова, 89А, БЦ «Байтал», офис 107",
+      "kk": "Жарбосынов көш., 89А, «Байтал» бизнес орталығы, 107-кеңсе",
+      "en": "89A Zharbosynov St., Baytal business centre, office 107"
+    },
+    "phone": "+77122516567",
+    "displayPhone": "+7-7122-516-567",
+    "email": "guw@rika.kz",
+    "hours": {
+      "ru": "Пн–Пт 09:00–18:00; Сб 09:30–14:00",
+      "kk": "Дс–Жм 09:00–18:00; Сб 09:30–14:00",
+      "en": "Mon–Fri 09:00–18:00; Sat 09:30–14:00"
+    },
+    "region": "west",
+    "additionalPhones": [
+      {
+        "phone": "+77018006168",
+        "displayPhone": "+7-701-800-61-68"
+      }
+    ]
+  },
+  {
+    "id": "zhanaozen-office",
+    "city": {
+      "ru": "Жанаозен",
+      "kk": "Жаңаөзен",
+      "en": "Zhanaozen"
+    },
+    "type": {
+      "ru": "Офис и пункт выдачи",
+      "kk": "Кеңсе және беру пункті",
+      "en": "Office & pickup point"
+    },
+    "address": {
+      "ru": "мкр. 1, зд. 1/11, БЦ «Арманда», офис 103",
+      "kk": "1-шағынауд., 1/11 ғимарат, «Арманда» бизнес орталығы, 103-кеңсе",
+      "en": "District 1, building 1/11, Armanda business centre, office 103"
+    },
+    "phone": "+77010811479",
+    "displayPhone": "+7-701-081-14-79",
+    "email": "zhn@rika.kz",
+    "hours": {
+      "ru": "Пн–Пт 09:00–18:00",
+      "kk": "Дс–Жм 09:00–18:00",
+      "en": "Mon–Fri 09:00–18:00"
+    },
+    "region": "west",
+    "additionalPhones": []
+  },
+  {
+    "id": "karaganda-office",
+    "city": {
+      "ru": "Караганда",
+      "kk": "Қарағанды",
+      "en": "Karaganda"
+    },
+    "type": {
+      "ru": "Офис и пункт выдачи",
+      "kk": "Кеңсе және беру пункті",
+      "en": "Office & pickup point"
+    },
+    "address": {
+      "ru": "ул. Пассажирская, 10, офис 113",
+      "kk": "Пассажирская көш., 10, 113-кеңсе",
+      "en": "10 Passazhirskaya St., office 113"
+    },
+    "phone": "+77212475704",
+    "displayPhone": "+7-7212-475-704",
+    "email": "kgf@rika.kz",
+    "hours": {
+      "ru": "Пн–Пт 09:00–18:00; Сб 09:30–14:00",
+      "kk": "Дс–Жм 09:00–18:00; Сб 09:30–14:00",
+      "en": "Mon–Fri 09:00–18:00; Sat 09:30–14:00"
+    },
+    "region": "central",
+    "additionalPhones": [
+      {
+        "phone": "+77018132107",
+        "displayPhone": "+7-701-813-21-07"
+      },
+      {
+        "phone": "+77012316551",
+        "displayPhone": "+7-701-231-65-51"
+      }
+    ]
+  },
+  {
+    "id": "kostanay-office",
+    "city": {
+      "ru": "Костанай",
+      "kk": "Қостанай",
+      "en": "Kostanay"
+    },
+    "type": {
+      "ru": "Офис и пункт выдачи",
+      "kk": "Кеңсе және беру пункті",
+      "en": "Office & pickup point"
+    },
+    "address": {
+      "ru": "ул. Темирбаева, 50",
+      "kk": "Темірбаев көш., 50",
+      "en": "50 Temirbayev St."
+    },
+    "phone": "+77015329602",
+    "displayPhone": "+7-701-532-96-02",
+    "email": "ksn@rika.kz",
+    "hours": {
+      "ru": "Пн–Пт 09:00–18:00; Сб 09:30–14:00",
+      "kk": "Дс–Жм 09:00–18:00; Сб 09:30–14:00",
+      "en": "Mon–Fri 09:00–18:00; Sat 09:30–14:00"
+    },
+    "region": "north",
+    "additionalPhones": []
+  },
+  {
+    "id": "pavlodar-office",
+    "city": {
+      "ru": "Павлодар",
+      "kk": "Павлодар",
+      "en": "Pavlodar"
+    },
+    "type": {
+      "ru": "Офис и пункт выдачи",
+      "kk": "Кеңсе және беру пункті",
+      "en": "Office & pickup point"
+    },
+    "address": {
+      "ru": "ул. Бакинская, 1/2, офис 1",
+      "kk": "Бакинская көш., 1/2, 1-кеңсе",
+      "en": "1/2 Bakinskaya St., office 1"
+    },
+    "phone": "+77018132084",
+    "displayPhone": "+7-701-813-20-84",
+    "email": "pwqh@rika.kz",
+    "hours": {
+      "ru": "Пн–Пт 09:00–18:00",
+      "kk": "Дс–Жм 09:00–18:00",
+      "en": "Mon–Fri 09:00–18:00"
+    },
+    "region": "north",
+    "additionalPhones": []
+  },
+  {
+    "id": "semey-office",
+    "city": {
+      "ru": "Семей",
+      "kk": "Семей",
+      "en": "Semey"
+    },
+    "type": {
+      "ru": "Офис и пункт выдачи",
+      "kk": "Кеңсе және беру пункті",
+      "en": "Office & pickup point"
+    },
+    "address": {
+      "ru": "ул. Жумабаева, 55, офис 2",
+      "kk": "Жұмабаев көш., 55, 2-кеңсе",
+      "en": "55 Zhumabayev St., office 2"
+    },
+    "phone": "+77010829313",
+    "displayPhone": "+7-701-082-93-13",
+    "email": "plx@rika.kz",
+    "hours": {
+      "ru": "Пн–Пт 09:00–18:00; Сб 09:30–14:00",
+      "kk": "Дс–Жм 09:00–18:00; Сб 09:30–14:00",
+      "en": "Mon–Fri 09:00–18:00; Sat 09:30–14:00"
+    },
+    "region": "east",
+    "additionalPhones": []
+  },
+  {
+    "id": "taraz-office",
+    "city": {
+      "ru": "Тараз",
+      "kk": "Тараз",
+      "en": "Taraz"
+    },
+    "type": {
+      "ru": "Офис и пункт выдачи",
+      "kk": "Кеңсе және беру пункті",
+      "en": "Office & pickup point"
+    },
+    "address": {
+      "ru": "ул. Комратова, 156, офис 11",
+      "kk": "Комратов көш., 156, 11-кеңсе",
+      "en": "156 Komratov St., office 11"
+    },
+    "phone": "+77013952812",
+    "displayPhone": "+7-701-395-28-12",
+    "email": "dmbh@rika.kz",
+    "hours": {
+      "ru": "Пн–Пт 09:00–18:00",
+      "kk": "Дс–Жм 09:00–18:00",
+      "en": "Mon–Fri 09:00–18:00"
+    },
+    "region": "south",
+    "additionalPhones": []
+  },
+  {
+    "id": "uralsk-office",
+    "city": {
+      "ru": "Уральск",
+      "kk": "Орал",
+      "en": "Oral"
+    },
+    "type": {
+      "ru": "Офис и пункт выдачи",
+      "kk": "Кеңсе және беру пункті",
+      "en": "Office & pickup point"
+    },
+    "address": {
+      "ru": "ул. Гумара Караша, 41, офис 4",
+      "kk": "Ғұмар Қараш көш., 41, 4-кеңсе",
+      "en": "41 Gumar Karash St., office 4"
+    },
+    "phone": "+77010570951",
+    "displayPhone": "+7-701-057-09-51",
+    "email": "urah@rika.kz",
+    "hours": {
+      "ru": "Пн–Пт 09:00–18:00; Сб 09:30–14:00",
+      "kk": "Дс–Жм 09:00–18:00; Сб 09:30–14:00",
+      "en": "Mon–Fri 09:00–18:00; Sat 09:30–14:00"
+    },
+    "region": "west",
+    "additionalPhones": [
+      {
+        "phone": "+77013096799",
+        "displayPhone": "+7-701-309-67-99"
+      }
+    ]
+  },
+  {
+    "id": "shymkent-office",
+    "city": {
+      "ru": "Шымкент",
+      "kk": "Шымкент",
+      "en": "Shymkent"
+    },
+    "type": {
+      "ru": "Офис и пункт выдачи",
+      "kk": "Кеңсе және беру пункті",
+      "en": "Office & pickup point"
+    },
+    "address": {
+      "ru": "пр. Кабанбай Батыра, 12, офис 2",
+      "kk": "Қабанбай батыр даңғ., 12, 2-кеңсе",
+      "en": "12 Kabanbay Batyr Ave., office 2"
+    },
+    "phone": "+77786438423",
+    "displayPhone": "+7-778-643-84-23",
+    "email": "cit@rika.kz",
+    "hours": {
+      "ru": "Пн–Пт 09:00–18:00; Сб 09:30–14:00",
+      "kk": "Дс–Жм 09:00–18:00; Сб 09:30–14:00",
+      "en": "Mon–Fri 09:00–18:00; Sat 09:30–14:00"
+    },
+    "region": "south",
+    "additionalPhones": [
+      {
+        "phone": "+77013096791",
+        "displayPhone": "+7-701-309-67-91"
+      }
+    ]
+  },
+  {
+    "id": "shymkent-nursat",
+    "city": {
+      "ru": "Шымкент",
+      "kk": "Шымкент",
+      "en": "Shymkent"
+    },
+    "type": {
+      "ru": "Пункт приёма и выдачи",
+      "kk": "Қабылдау және беру пункті",
+      "en": "Drop-off & pickup point"
+    },
+    "address": {
+      "ru": "ул. Нурсат, 7/1, ТРЦ «Rahima Plaza», 0-этаж, бутик 100/8",
+      "kk": "Нұрсат көш., 7/1, «Rahima Plaza» сауда орталығы, 0-қабат, 100/8-бутик",
+      "en": "7/1 Nursat St., Rahima Plaza, level 0, unit 100/8"
+    },
+    "phone": "+77789968474",
+    "displayPhone": "+7-778-996-84-74",
+    "email": "cit@rika.kz",
+    "hours": {
+      "ru": "Ежедневно 10:00–19:00",
+      "kk": "Күн сайын 10:00–19:00",
+      "en": "Daily 10:00–19:00"
+    },
+    "region": "south",
+    "additionalPhones": []
+  },
+  {
+    "id": "shymkent-orynbay",
+    "city": {
+      "ru": "Шымкент",
+      "kk": "Шымкент",
+      "en": "Shymkent"
+    },
+    "type": {
+      "ru": "Пункт приёма и выдачи",
+      "kk": "Қабылдау және беру пункті",
+      "en": "Drop-off & pickup point"
+    },
+    "address": {
+      "ru": "ул. Орынбай акына, 178/2",
+      "kk": "Орынбай ақын көш., 178/2",
+      "en": "178/2 Orynbay Akyn St."
+    },
+    "phone": "+77789968457",
+    "displayPhone": "+7-778-996-84-57",
+    "hours": {
+      "ru": "Ежедневно 09:00–21:00",
+      "kk": "Күн сайын 09:00–21:00",
+      "en": "Daily 09:00–21:00"
+    },
+    "region": "south",
+    "additionalPhones": []
+  }
+]

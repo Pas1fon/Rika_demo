@@ -1,0 +1,14 @@
+{
+  "name": "rika-frontend-prototype",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Responsive multi-page RIKA redesign prototype with local demo interactions",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "build": "node tools/build.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

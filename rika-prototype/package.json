@@ -1,8 +1,8 @@
 {
-  "name": "rika-frontend-prototype",
-  "version": "2.0.0",
+  "name": "rika-website",
+  "version": "3.0.0",
   "private": true,
-  "description": "Responsive multi-page RIKA redesign prototype with local demo interactions",
+  "description": "RIKA delivery website",
   "type": "module",
   "scripts": {
     "start": "node server.mjs",

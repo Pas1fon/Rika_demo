@@ -12,7 +12,7 @@ const tri=(ru,kk,en)=>({ru,kk,en});
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const dictionary={ru:{},kk:{},en:{}};
 const baseContext={window:{}};
-vm.runInNewContext(fs.readFileSync(path.join(dist,'i18n.js'),'utf8'),baseContext);
+vm.runInNewContext(fs.readFileSync(path.join(root,'tools/base-i18n.js'),'utf8'),baseContext);
 function key(name,value){for(const l of ['ru','kk','en']) dictionary[l][name]=value[l];return name;}
 function txt(name,value,tag='span',attrs=''){key(name,value);return `<${tag} data-i18n="${name}" ${attrs}>${esc(value.ru).replace(/&lt;br\s*\/?&gt;/g,'<br>')}</${tag}>`;}
 const ui={
@@ -103,3 +103,5 @@ fs.writeFileSync(path.join(dist,'index.html'),home);
 fs.writeFileSync(path.join(dist,'pages-i18n.js'),`for(const [language,values] of Object.entries(${JSON.stringify(dictionary)})){Object.assign(window.RIKA_I18N[language],values);}`);
 fs.writeFileSync(path.join(dist,'data.js'),`window.RIKA_OFFICES=${JSON.stringify(offices)};window.RIKA_ZONES=${JSON.stringify(zones)};`);
 console.log(`Built ${allPages.length+specialPages.length+2} pages; ${offices.length} locations; ${zones.length} zone cities.`);
+
+await import("./showcase.mjs");

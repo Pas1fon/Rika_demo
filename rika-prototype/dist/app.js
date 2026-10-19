@@ -27,8 +27,8 @@
     $('#swap-cities')?.setAttribute('aria-label', t('swapLabel'));
     document.title = t(document.body.dataset.pageTitle || 'pageTitle');
     try { localStorage.setItem('rika-language', lang); } catch { /* File/private mode can disable storage. */ }
-    if (trackingState) renderTracking();
-    if (calculated) renderCalculation();
+
+
     if ($('#tracking-error') && !$('#tracking-error').hidden) $('#tracking-error').textContent = t('trackInvalid');
     document.dispatchEvent(new CustomEvent('rika:language', {detail:lang}));
   }
@@ -65,66 +65,6 @@
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && !$('#mobile-menu').hidden) { closeMenu(); menuButton.focus(); } });
   matchMedia('(min-width: 901px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
 
-  const trackingInput = $('#tracking-number');
-  function renderTracking() {
-    const result = $('#tracking-result');
-    result.hidden = false;
-    if (trackingState === 'demo') {
-      result.innerHTML = `<span class="mode-badge">${escape(t('demoBadge'))} · RIKA-DEMO</span><h3>${escape(t('demoTrackingTitle'))}</h3><p>${escape(t('demoRoute'))}</p><ol class="timeline"><li>${escape(t('demoStep1'))}</li><li>${escape(t('demoStep2'))}</li><li aria-current="step">${escape(t('demoStep3'))}</li><li>${escape(t('demoStep4'))}</li></ol><p class="result-note">${escape(t('demoTrackingNote'))}</p>`;
-    } else {
-      result.innerHTML = `<h3>${escape(t('trackRealTitle'))}</h3><p>${escape(t('trackRealText'))}</p><a class="subtle-link" href="#live-tracking">${escape(t('realTracking'))} →</a>`;
-    }
-  }
-  $('#tracking-form')?.addEventListener('submit', event => {
-    event.preventDefault();
-    const value = trackingInput.value.trim();
-    if (!/^[\p{L}\p{N}-]{3,40}$/u.test(value)) {
-      $('#tracking-error').textContent = t('trackInvalid');
-      $('#tracking-error').hidden = false;
-      trackingInput.setAttribute('aria-invalid','true');
-      $('#tracking-result').hidden = true;
-      trackingState = null;
-      trackingInput.focus();
-      return;
-    }
-    $('#tracking-error').hidden = true;
-    trackingInput.removeAttribute('aria-invalid');
-    trackingState = value.toUpperCase() === 'RIKA-DEMO' ? 'demo' : 'real';
-    renderTracking();
-  });
-  trackingInput?.addEventListener('input', () => {
-    $('#tracking-error').hidden = true;
-    trackingInput.removeAttribute('aria-invalid');
-    $('#tracking-result').hidden = true;
-    trackingState = null;
-  });
-  $('#try-demo')?.addEventListener('click', () => {
-    trackingInput.value = 'RIKA-DEMO';
-    $('#tracking-form').requestSubmit();
-  });
-
-  const calculator = $('#calculator-form');
-  function clearCalculation() { calculated = false; $('#calculator-result').hidden = true; }
-  $('#swap-cities')?.addEventListener('click', () => {
-    const from = $('#from-city'), to = $('#to-city');
-    [from.value, to.value] = [to.value, from.value];
-    clearCalculation();
-  });
-  function renderCalculation() {
-    const weight = Number($('#weight').value);
-    if (!Number.isFinite(weight) || weight < .1 || weight > 30) return;
-    const base = $('#from-city').value === $('#to-city').value ? 900 : 1500;
-    const steps = Math.ceil(weight);
-    const price = base + steps * 400; // Illustrative units only; no official RIKA rate data.
-    const formatted = new Intl.NumberFormat(language === 'kk' ? 'kk-KZ' : language === 'en' ? 'en-US' : 'ru-RU').format(price);
-    const formula = t('calcFormula').replace('{base}',String(base)).replace('{steps}',String(steps)).replace('{price}',formatted);
-    const result = $('#calculator-result');
-    result.innerHTML = `<span class="mode-badge">${escape(t('demoBadge'))}</span><h3>${escape(t('calcResultTitle'))}</h3><output class="price-result">${formatted} ₸</output><p>${escape(formula)}</p><p class="result-note">${escape(t('calcResultNote'))}</p>`;
-    result.hidden = false;
-  }
-  calculator?.addEventListener('submit', event => { event.preventDefault(); calculated = true; renderCalculation(); });
-  calculator?.addEventListener('input', clearCalculation);
-  calculator?.addEventListener('change', clearCalculation);
   let saved = 'ru';
   try { saved = localStorage.getItem('rika-language') || 'ru'; } catch { /* Optional language persistence. */ }
   setLanguage(saved);

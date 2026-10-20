@@ -105,3 +105,4 @@ fs.writeFileSync(path.join(dist,'data.js'),`window.RIKA_OFFICES=${JSON.stringify
 console.log(`Built ${allPages.length+specialPages.length+2} pages; ${offices.length} locations; ${zones.length} zone cities.`);
 
 await import("./showcase.mjs");
+await import("./navigation-update.mjs");

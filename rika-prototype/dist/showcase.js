@@ -32,3 +32,8 @@
  if(mobile){contactButton.href='https://wa.me/'+mobile.replace(/\D/g,'');contactButton.target='_blank';contactButton.rel='noopener noreferrer';}
  const translateContact=()=>contactButton.textContent=t(mobile?'whatsappAstana':'contactRika')+' ↗';document.addEventListener('rika:language',translateContact);translateContact();
 })();
+(() => {
+ const input=document.querySelector('#country-query');
+ if(!input)return;
+ input.addEventListener('input',()=>{const query=input.value.normalize('NFKC').toLocaleLowerCase().replace(/ё/g,'е').trim();let count=0;document.querySelectorAll('[data-country-row]').forEach(row=>{const show=row.querySelector('th').textContent.toLocaleLowerCase().replace(/ё/g,'е').includes(query);row.hidden=!show;if(show)count++;});document.querySelector('#country-empty').hidden=count>0;});
+})();

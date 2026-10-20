@@ -1,0 +1,72 @@
+import fs from 'node:fs';import path from 'node:path';import vm from 'node:vm';import {fileURLToPath} from 'node:url';import {createHash} from 'node:crypto';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),dist=path.join(root,'dist');
+const read=n=>fs.readFileSync(path.join(dist,n),'utf8'),write=(n,s)=>fs.writeFileSync(path.join(dist,n),s);
+const ctx={window:{}};vm.runInNewContext(read('i18n.js'),ctx);const dict=ctx.window.RIKA_I18N;
+const add=(k,ru,kk,en)=>{for(const [l,v]of Object.entries({ru,kk,en}))dict[l][k]=v;};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const t=(k,tag='span')=>`<${tag} data-i18n="${k}">${esc(dict.ru[k]||k)}</${tag}>`;
+const a=(href,k,cls='button secondary')=>`<a class="${cls}" href="${href}">${t(k)}</a>`;
+add('internationalMeeting','Международные доставки','Халықаралық жеткізу','International deliveries');
+add('myCity','Мой город','Менің қалам','My city');
+add('officeMapTitle','РИКА рядом с вами','РИКА сіздің жаныңызда','RIKA near you');
+add('officeMapLead','Выберите город на карте или в списке — покажем адрес, график работы и контакты офиса.','Картадан немесе тізімнен қаланы таңдаңыз — кеңсенің мекенжайын, жұмыс уақытын және байланыстарын көрсетеміз.','Choose a city on the map or in the list to see office details, opening hours and contacts.');
+add('officeMapLabel','Офисы РИКА на карте Казахстана','Қазақстан картасындағы РИКА кеңселері','RIKA offices on the map of Kazakhstan');
+add('officeCitySelect','Выберите город','Қаланы таңдаңыз','Select a city');
+add('servedByAstana','Обслуживает офис РИКА в Астане','Астанадағы РИКА кеңсесі қызмет көрсетеді','Served by the RIKA office in Astana');
+add('officeDetails','Данные офиса','Кеңсе деректері','Office details');
+add('businessRateCardLead','Стоимость доставки и тарифные зоны для компаний.','Компанияларға арналған жеткізу құны мен тарифтік аймақтар.','Delivery prices and rate zones for companies.');
+add('internationalCardLead','Документы и посылки за рубеж: условия, страны и тарифы.','Құжаттар мен сәлемдемелерді шетелге жеткізу: шарттар, елдер және тарифтер.','Documents and parcels abroad: conditions, countries and rates.');
+add('privateRateCard','Тарифы для частных лиц','Жеке тұлғаларға арналған тарифтер','Personal delivery rates');
+add('clientZonesTitle','Тарифные зоны доставки','Жеткізудің тарифтік аймақтары','Delivery rate zones');
+add('privateZonesLead','Зоны для отправлений частных клиентов по Казахстану. Нажмите на зону, чтобы увидеть города и условия.','Қазақстан бойынша жеке клиенттер жөнелтімдерінің аймақтары. Қалалар мен шарттарды көру үшін аймақты басыңыз.','Zones for personal shipments in Kazakhstan. Select a zone to see its cities and conditions.');
+add('businessZonesLead','Зоны для корпоративных отправлений. Состав зоны 3 отличается от условий для частных клиентов.','Корпоративтік жөнелтімдер аймақтары. 3-аймақтың құрамы жеке клиенттердің шарттарынан өзгеше.','Corporate shipment zones. Zone 3 differs from personal delivery coverage.');
+add('zoneOtherLead','Другие населённые пункты: возможность забора и доставки подтверждает офис РИКА.','Басқа елді мекендер: алып кету мен жеткізу мүмкіндігін РИКА кеңсесі растайды.','Other settlements: RIKA confirms collection and delivery availability.');
+add('zoneLocalLead','Внутригородская доставка в пределах обслуживаемой территории.','Қызмет көрсетілетін аумақ шегінде қала ішінде жеткізу.','City delivery within the service area.');
+add('zoneIntercityLead','Доставка между перечисленными городами.','Тізімдегі қалалар арасында жеткізу.','Delivery between the listed cities.');
+const offices=JSON.parse(fs.readFileSync(path.join(root,'tools/offices.json'),'utf8').replace(/^\uFEFF/,''));
+const route=JSON.parse(read('route-data.js').replace(/^window.RIKA_ROUTE_DATA=/,'').replace(/;\s*$/,''));
+const cityMap=new Map(offices.map(o=>[o.city.ru,o.city]));
+cityMap.set('Кокшетау',{ru:'Кокшетау',kk:'Көкшетау',en:'Kokshetau'});cityMap.set('Петропавловск',{ru:'Петропавловск',kk:'Петропавл',en:'Petropavlovsk'});cityMap.set('Экибастуз',{ru:'Экибастуз',kk:'Екібастұз',en:'Ekibastuz'});
+const markers={'Астана':[457,149],'Алматы':[504,249],'Актау':[222,251],'Актобе':[263,178],'Атырау':[217,202],'Боралдай':[480,227],'Жанаозен':[245,268],'Караганда':[563,162],'Кокшетау':[467,82],'Костанай':[368,119],'Павлодар':[529,70],'Петропавловск':[448,40],'Семей':[610,106],'Тараз':[480,274],'Уральск':[180,113],'Шымкент':[457,278],'Экибастуз':[509,96]};
+const routedCities=['Кокшетау','Петропавловск','Экибастуз'];
+const cityData=[...cityMap.entries()].sort(([a],[b])=>a.localeCompare(b,'ru')).map(([name,labels],i)=>{add('myCityName'+i,labels.ru,labels.kk,labels.en);const office=routedCities.includes(name)?offices.find(o=>o.id==='astana-office'):(offices.find(o=>o.city.ru===name&&o.type.ru.toLowerCase().includes('офис'))||offices.find(o=>o.city.ru===name));const mobile=[...(office.additionalPhones||[]).map(p=>p.phone),office.phone].find(p=>/^\+7(?:70|77)\d{8}$/.test(p));return {name,labels,key:'myCityName'+i,officeId:office.id,whatsapp:mobile||null,routed:routedCities.includes(name),position:markers[name]};});
+write('city-routing.js','window.RIKA_CITY_ROUTING='+JSON.stringify(cityData)+';');
+const options=()=>cityData.map(c=>`<option value="${esc(c.name)}" data-i18n="${c.key}">${esc(c.name)}</option>`).join('');
+const cityControl=`<label class="my-city-control">${t('myCity')}<select id="my-city" aria-label="Мой город" data-i18n-aria="myCity">${options()}</select></label>`;
+const mapSection=`<section class="container office-map-section" id="office-map"><div class="section-heading"><div>${t('officeMapTitle','h2')}${t('officeMapLead','p')}</div></div><div class="office-map-grid"><div class="map-side"><label class="map-city-control">${t('officeCitySelect')}<select id="map-city" aria-label="Выберите город" data-i18n-aria="officeCitySelect">${options()}</select></label><div class="map-scroll"><div class="office-map-stage"><img src="assets/kazakhstan-office-map.png" width="820" height="334" alt="Карта офисов РИКА в Казахстане" data-i18n-alt="officeMapLabel">${cityData.map(c=>`<button type="button" class="map-city-pin" data-map-city="${esc(c.name)}" style="left:${(c.position[0]/820*100).toFixed(3)}%;top:${(c.position[1]/334*100).toFixed(3)}%" aria-label="${esc(c.name)}" data-i18n-aria="${c.key}" aria-pressed="false"><span class="pin-dot" aria-hidden="true"></span><span class="pin-label" data-i18n="${c.key}">${esc(c.name)}</span></button>`).join('')}</div></div></div><aside class="map-office-card" id="map-office-card" aria-live="polite" aria-atomic="true"></aside></div></section>`;
+const businessCard=`<article class="home-business-card"><div><p class="eyebrow pink">${t('businessEyebrow')}</p><h3>${t('businessTitle')}</h3>${t('businessDescription','p')}<div class="home-business-points">${t('businessPoint1')}${t('businessPoint2')}</div>${a('service-business.html#offer','offerAction','button dark')}</div></article>`;
+const largeCard=(href,title,lead,kind='')=>`<a class="meeting-action-card ${kind}" href="${href}">${t(title,'h2')}${t(lead,'p')}</a>`;
+function zoneSection(business=false){const base=route.privateZones.filter(z=>z.zone!=='3');const special=route.privateZones.filter(z=>z.zone==='3').map(z=>z.city.ru);if(business)special.push(...route.businessOnly);return `<section id="zones" class="container client-zones-section">${t('clientZonesTitle','h2')}${t(business?'businessZonesLead':'privateZonesLead','p')}<div class="client-zones-grid">${['zoneOne','zoneTwo','zoneThree','zoneFour'].map((key,i)=>`<details class="client-zone"><summary><strong>0${i+1}</strong>${t(key)}</summary>${i===3?t('zoneOtherLead','p'):i===2?`<p>${esc(special.join(', '))}</p>`:`${t(i?'zoneIntercityLead':'zoneLocalLead','p')}<p>${base.map(z=>esc(z.city.ru)).join(', ')}</p>`}</details>`).join('')}</div></section>`;}
+const economyContent=read('tariffs.html').split(/<section class="rates-panel" id="economy"[^>]*>/)[1].split('<section class="rates-panel" id="calculator"')[0].replace(/<\/section>$/, '');
+let privatePage=read('private.html');
+privatePage=privatePage.replace(/(<section id="rates" class="container consolidated-card">)([\s\S]*?)(<div class="task-grid">[\s\S]*?<\/div><\/section>)/,(_,start,standard,actions)=>`${start}<div class="inline-rate-tabs" role="group" aria-label="Тарифы"><button class="button secondary" type="button" data-inline-rate="standard" aria-pressed="true">${t('privateRateCard')}</button><button class="button secondary" type="button" data-inline-rate="economy" aria-pressed="false">${t('economyTitle')}</button></div><div data-inline-panel="standard">${standard}</div><div data-inline-panel="economy" hidden>${economyContent}</div>${actions.replace(/<a class="button secondary" href="tariffs.html#economy">[\s\S]*?<\/a>/,'')}`);privatePage=privatePage.replace('<section id="delivery"',`<nav class="container meeting-client-navigation">${a('#rates','privateRateCard')}${a('#zones','clientZonesTitle')}${a('international.html','internationalMeeting')}</nav><section id="delivery"`);privatePage=privatePage.replace('</main>',zoneSection(false)+'</main>');write('private.html',privatePage);
+let businessPage=read('service-business.html');businessPage=businessPage.replace(/<section class="container"><div class="benefit-grid">[\s\S]*?<\/section>/,`<section class="container meeting-business-actions">${largeCard('#business-rates','businessRates','businessRateCardLead')}${largeCard('international.html','internationalMeeting','internationalCardLead','international-action')}</section>`);
+const corporate=read('tariffs.html').match(/<section class="rates-panel" id="business"[^>]*>([\s\S]*?)<\/section>/)[1];
+businessPage=businessPage.replace('<section id="contract"',`<section id="business-rates" class="container consolidated-card">${corporate}<div class="task-grid">${a('#zones','clientZonesTitle')}${a('tariffs.html#calculator','calculatorAction')}</div></section>${zoneSection(true)}<section id="contract"`);write('service-business.html',businessPage);
+let home=read('index.html');home=home.replace(/<a class="service-card business-service"[\s\S]*?<\/a>/,businessCard).replace(/<section class="business-section section container"[\s\S]*?<\/section>/,mapSection);
+home=home.replace(/<a class="audience-card" href="documents.html">[\s\S]*?<\/a>/,a('international.html','internationalMeeting','audience-card'));write('index.html',home);
+const arrows=/[↗↘↖↙→←↑↓⇄↔➜➔➡⬆⬇]/g;
+for(const values of Object.values(dict))for(const k of Object.keys(values))values[k]=values[k].replace(arrows,'').replace(/\s+$/,'');
+write('i18n.js','window.RIKA_I18N='+JSON.stringify(dict)+';');
+for(const n of ['meeting.js','meeting.css'])fs.copyFileSync(path.join(root,'tools',n),path.join(dist,n));
+for(const n of fs.readdirSync(dist).filter(n=>n.endsWith('.js')||n.endsWith('.css'))){write(n,read(n).replace(arrows,''));}
+const logo=fs.readFileSync(path.join(dist,'assets/rika-wordmark-white.png')).toString('base64');
+fs.writeFileSync(path.join(dist,'assets/rika-wordmark.svg'),`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1532 218"><mask id="mark" mask-type="alpha"><image width="1532" height="218" xlink:href="data:image/png;base64,${logo}"/></mask><path fill="#D70D80" mask="url(#mark)" d="M0 0h1532v218H0z"/></svg>`);
+for(const name of fs.readdirSync(dist).filter(n=>n.endsWith('.html'))){let h=read(name);const isMain=h.includes('class="site-header"');
+ if(isMain){const nav=[['private.html','privateNav'],['service-business.html','businessNav'],['international.html','internationalNav'],['contacts.html','contacts']].map(([href,k])=>a(href,k,'')).join('');
+ h=h.replace(/<nav class="desktop-nav"[\s\S]*?<\/nav>/,`<nav class="desktop-nav" aria-label="Главная навигация">${nav}</nav>`).replace(/<nav id="mobile-menu"[\s\S]*?<\/nav>/,`<nav id="mobile-menu" class="mobile-menu" hidden aria-label="Мобильная навигация">${nav}${a('documents.html','documentsHeading','')}${a('news.html','news','')}${a('about.html','company','')}${a('courier.html','courierAction','')}</nav>`);
+ h=h.replace('<div class="header-controls">',cityControl+'<div class="header-controls">');
+ h=h.replace(/<img\b[^>]*src="assets\/logo(?:-official)?\.png"[^>]*>/g,'<img class="brand-mark" src="assets/rika-wordmark.svg" width="185" height="28" alt="РИКА Экспресс-почта">');
+ h=h.replace(/<link rel="icon"[^>]*>/,'<link rel="icon" href="assets/rika-wordmark.svg">');
+ h=h.replace(/<span class="circle-arrow">[\s\S]*?<\/span>/g,'').replace(/<span class="news-arrow">[\s\S]*?<\/span>/g,'').replace(/<a class="back-top"[\s\S]*?<\/a>/g,'');
+ h=h.replace(/(<div class="anniversary">[\s\S]*?)<svg[\s\S]*?<\/svg>/,'$1');
+ if(name==='private.html')h=h.replace(/href="delivery-zones.html"/g,'href="#zones"').replace(/href="tariffs.html(?:#private)?"/g,'href="#rates"');
+ if(name==='service-business.html')h=h.replace(/href="delivery-zones.html"/g,'href="#zones"').replace(/href="tariffs.html#business"/g,'href="#business-rates"');
+ if(!h.includes('src="data.js'))h=h.replace('</head>','<script src="data.js" defer></script></head>');
+ h=h.replace('</head>','<script src="city-routing.js" defer></script><script src="meeting.js" defer></script><link rel="stylesheet" href="meeting.css"></head>');
+ }
+ h=h.replace(arrows,'');write(name,h);
+}
+for(const name of fs.readdirSync(dist).filter(n=>n.endsWith('.html'))){const h=read(name).replace(/(href|src)="([^"?]+\.(?:css|js))(?:\?[^\"]*)?"/g,(all,attribute,file)=>{const p=path.join(dist,file);if(!fs.existsSync(p))return all;return `${attribute}="${file}?v=${createHash('sha256').update(fs.readFileSync(p)).digest('hex').slice(0,10)}"`;});write(name,h);}
+console.log('Meeting changes applied: city routing, interactive map, contextual tariffs, new wordmark, font stacks and no arrows.');
+

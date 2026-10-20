@@ -106,3 +106,6 @@ console.log(`Built ${allPages.length+specialPages.length+2} pages; ${offices.len
 
 await import("./showcase.mjs");
 await import("./navigation-update.mjs");
+
+await import("./consolidate.mjs");
+await import("./meeting-update.mjs");

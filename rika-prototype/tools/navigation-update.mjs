@@ -3,6 +3,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 import {fileURLToPath} from 'node:url';
 import services from './service-pages.mjs';
+import {createHash} from 'node:crypto';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dist=path.join(root,'dist');
 const read=n=>fs.readFileSync(path.join(dist,n),'utf8');
@@ -46,10 +47,13 @@ add('internationalLead','Документы и посылки за рубеж: �
 add('documentRates','Тарифы на документы · KZT','Құжаттар тарифтері · KZT','Document rates · KZT');
 add('parcelRates','Тарифы на посылки · KZT','Сәлемдемелер тарифтері · KZT','Parcel rates · KZT');
 add('ratesScrollHint','Найдите зону страны выше и нужный вес в таблице. Широкую таблицу можно прокручивать вбок.','Жоғарыдан елдің аймағын, ал кестеден қажетті салмақты табыңыз. Кең кестені көлденең айналдыруға болады.','Find the country’s zone above and your shipment weight in the table. Wide tables can be scrolled sideways.');
+add('countryScrollHint','Прокручивайте список внутри окна или найдите страну по названию.','Тізімді терезе ішінде айналдырыңыз немесе елді атауы бойынша табыңыз.','Scroll within the list or search for a country by name.');
+add('countryPlaceholder','Введите название страны','Ел атауын енгізіңіз','Enter a country name');
 function localized(k,value,tag){add(k,value.ru,value.kk,value.en);return t(k,tag);}
 const descriptions=[['service-documents.html','documents'],['service-international.html','parcels']].map(([slug,id])=>{const service=services.find(s=>s.slug===slug);return `<article id="${id}" class="international-description">${localized(id+'UnifiedTitle',service.title,'h2')}${localized(id+'UnifiedLead',service.lead,'p')}<dl class="international-facts">${service.facts.map((fact,i)=>`<div>${localized(id+'FactLabel'+i,fact.label,'dt')}${localized(id+'FactValue'+i,fact.value,'dd')}</div>`).join('')}</dl>${service.sections.map((s,i)=>`${localized(id+'Section'+i,s.heading,'h3')}${s.paragraphs.map((p,j)=>localized(id+'Paragraph'+i+'_'+j,p,'p')).join('')}`).join('')}</article>`;}).join('');
 let zoneContent=read('international-zones.html').match(/<section class="container">([\s\S]*?)<div class="task-grid">/)[1];
-zoneContent=zoneContent.replace('class="tariff-table-wrap"','class="tariff-table-wrap international-country-scroll"');
+zoneContent=zoneContent.replace('class="tariff-table-wrap"','class="tariff-table-wrap international-country-scroll" tabindex="0" role="region" data-i18n-aria="internationalZones" aria-label="Международные тарифные зоны"').replace('id="country-query"','id="country-query" placeholder="Введите название страны" data-i18n-placeholder="countryPlaceholder"');
+zoneContent=t('countryScrollHint','p')+zoneContent;
 const rateTable=(slug,key,documentOnly=false)=>`<section class="container international-rates">${t(key,'h2')}${t('ratesScrollHint','p')}${(documentOnly?tables[slug].slice(0,1):tables[slug].slice(0,-1)).map(rows=>`<div class="tariff-table-wrap international-rate-scroll" tabindex="0" role="region" aria-label="${esc(dict.ru[key])}"><table class="tariff-table"><thead><tr>${rows[0].map(v=>`<th scope="col">${esc(v)}</th>`).join('')}</tr></thead><tbody>${rows.slice(1).map(row=>`<tr>${row.map(v=>`<td>${esc(v)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`).join('')}</section>`;
 newPage('international.html','internationalNav','internationalLead',`<section class="container international-descriptions">${descriptions}</section><section id="zones" class="container unified-zones">${t('internationalZones','h2')}${t('internationalZonesLead','p')}${zoneContent}</section>${rateTable('service-documents.html','documentRates',true)}${rateTable('service-international.html','parcelRates')}<section class="container">${t('tableSource','p')}${returns}</section>`);
 const kzBlock=`<section class="container zones-highlight"><div class="zone-heading">${t('kzZonesTitle','h2')}${a('delivery-zones.html','findCityZone')}</div><div class="zone-overview">${['zoneOne','zoneTwo','zoneThree','zoneFour'].map((k,i)=>`<a href="delivery-zones.html"><strong>0${i+1}</strong>${t(k)}</a>`).join('')}</div>${t('kzZonesLead','p')}</section>`;
@@ -69,4 +73,12 @@ for(const name of fs.readdirSync(dist).filter(n=>n.endsWith('.html'))){let h=rea
  write(name,h);
 }
 write('i18n.js','window.RIKA_I18N='+JSON.stringify(dict)+';');
+// Content-based versions make GitHub Pages fetch updated styles and scripts.
+for(const name of fs.readdirSync(dist).filter(n=>n.endsWith('.html'))){
+ const h=read(name).replace(/(href|src)="([^"?]+\.(?:css|js))(?:\?[^\"]*)?"/g,(all,attribute,file)=>{
+  const asset=path.join(dist,file);if(!fs.existsSync(asset))return all;
+  const hash=createHash('sha256').update(fs.readFileSync(asset)).digest('hex').slice(0,10);
+  return `${attribute}="${file}?v=${hash}"`;
+ });write(name,h);
+}
 console.log(`International navigation and visible zones added; ${countries.size} destination countries.`);

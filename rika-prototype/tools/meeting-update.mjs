@@ -69,6 +69,10 @@ add('decreaseQuantity','Уменьшить на 5','5-ке азайту','Decrea
 add('increaseQuantity','Увеличить на 5','5-ке арттыру','Increase by 5');
 businessFormPage=businessFormPage.replace(/<input name="monthly"[^>]*>/,input=>`<span class="quantity-control"><button type="button" class="quantity-step" data-quantity-step="-5" aria-label="${esc(dict.ru.decreaseQuantity)}" data-i18n-aria="decreaseQuantity">−</button>${input}<button type="button" class="quantity-step" data-quantity-step="5" aria-label="${esc(dict.ru.increaseQuantity)}" data-i18n-aria="increaseQuantity">+</button></span>`);
 write('service-business.html',businessFormPage);
+add('weightVideoTitle','Как измерить объёмный вес','Көлемдік салмақты қалай өлшеуге болады','How to measure volumetric weight');
+add('weightVideoLead','Видео на русском · 12 секунд. Измерьте упакованную коробку: длина × ширина × высота в сантиметрах ÷ 5 000.','Орыс тіліндегі бейне · 12 секунд. Қапталған қорапты өлшеңіз: ұзындығы × ені × биіктігі сантиметрмен ÷ 5 000.','Russian-language video · 12 seconds. Measure the packed box: length × width × height in centimetres ÷ 5,000.');
+const weightVideo=`<section class="container weight-video-section" id="weight-guide"><details><summary>${t('weightVideoTitle')}</summary>${t('weightVideoLead','p')}<video controls playsinline preload="none" width="1280" height="720" poster="assets/rika-volume-weight-poster.jpg" aria-label="Как измерить объёмный вес" data-i18n-aria="weightVideoTitle"><source src="assets/rika-volume-weight.mp4" type="video/mp4"><track kind="captions" src="assets/rika-volume-weight.vtt" srclang="ru" label="Русский"><a href="assets/rika-volume-weight.mp4">MP4</a></video></details></section>`;
+for(const [file,anchor] of [['private.html','<section id="delivery"'],['service-business.html','<section id="business-rates"'],['tariffs.html','<section class="container rates-hub"']])write(file,read(file).replace(anchor,weightVideo+anchor));
 const arrows=/[↗↘↖↙→←↑↓⇄↔➜➔➡⬆⬇]/g;
 for(const values of Object.values(dict))for(const k of Object.keys(values))values[k]=values[k].replace(arrows,'').replace(/\s+$/,'');
 write('i18n.js','window.RIKA_I18N='+JSON.stringify(dict)+';');

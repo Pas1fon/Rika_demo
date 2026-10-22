@@ -27,3 +27,6 @@ for(const row of read('international.html').matchAll(/<tr data-country-row>(.*?)
 for(const lang of ['ru','kk','en'])for(const ext of ['mp4','jpg','vtt'])assert.ok(fs.statSync(path.join(dist,'assets',`volume-weight-${lang}.${ext}`)).size>0);
 for(const resource of JSON.parse(fs.readFileSync(path.join(root,'tools/client-resources.json'),'utf8')))for(const file of resource.files)assert.equal(fs.statSync(path.join(dist,file.href)).size,file.bytes);
 console.log('Revision 22 checks passed: forms, no-send validation, payloads, zones, directory, files and localized video.');
+
+for(const file of fs.readdirSync(dist).filter(n=>n.endsWith('.html')))for(const [,url]of read(file).matchAll(/(?:href|src)="(https?:\/\/[^\"]+)"/g))assert.ok(!['rika.kz','www.rika.kz'].includes(new URL(url).hostname),file+' depends on the old site');
+assert.equal(fs.readdirSync(dist).filter(n=>n.startsWith('info-')&&n.endsWith('.html')).length,10);

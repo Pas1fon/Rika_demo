@@ -37,3 +37,5 @@
 Сборка: `node tools/build.mjs`. Проверка поведения: `node tools/check-revision22.mjs`.
 Форма курьера напрямую открывает WhatsApp выбранного города с БИН/ИИН; математическая проверка в этой форме удалена. Бизнес-форма напрямую открывает письмо на davlatbek.kh@gmail.com; пример в ней сохранён. Реальная отправка выполняется пользователем в WhatsApp или почте. Никаких писем/заявок при проверках не отправлялось.
 Видео: dist/assets/volume-weight-{ru,kk,en}.{mp4,jpg,vtt}. Исходник: tools/render-weight-video.py (Pillow и FFmpeg; путь к FFmpeg задаётся RIKA_FFMPEG). Ролики — 12 секунд без озвучки.
+
+Информация клиентов теперь доступна на 10 собственных страницах info-*.html. Исходные тексты в tools/client-articles.mjs, сборка в tools/local-information.mjs. На старый сайт нет ссылок и запросов к ресурсам; внешние Courierexe, TrustMe и WhatsApp сохранены.

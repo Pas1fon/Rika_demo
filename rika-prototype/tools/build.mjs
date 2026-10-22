@@ -109,3 +109,4 @@ await import("./navigation-update.mjs");
 
 await import("./consolidate.mjs");
 await import("./meeting-update.mjs");
+await import("./revision22.mjs");

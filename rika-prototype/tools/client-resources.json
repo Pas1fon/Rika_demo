@@ -1,0 +1,96 @@
+[
+  {
+    "slug": "obrazets-pismennoy-garantii",
+    "title": "Образец письменной гарантии",
+    "source": "https://rika.kz/ru/publikatsii/article/obrazets-pismennoy-garantii.html",
+    "files": [
+      {
+        "title": "Скачать документ",
+        "href": "documents/obrazets-pismennoy-garantii-0.docx",
+        "source": "https://rika.kz/upload/file/Письменная гарантия (RU).docx",
+        "bytes": 17787
+      }
+    ]
+  },
+  {
+    "slug": "obrazets-proformy-invoysa",
+    "title": "Образец проформы инвойса",
+    "source": "https://rika.kz/ru/publikatsii/article/obrazets-proformy-invoysa.html",
+    "files": [
+      {
+        "title": "Образец инвойса.xlsx",
+        "href": "documents/obrazets-proformy-invoysa-0.xlsx",
+        "source": "https://rika.kz/upload/file/PI_ 22-09-26.xlsx",
+        "bytes": 15837
+      }
+    ]
+  },
+  {
+    "slug": "obrazets-zayavleniya-po-oshibochno-oplachennoy-summe",
+    "title": "ОБРАЗЕЦ ЗАЯВЛЕНИЯ ПО ОШИБОЧНО ОПЛАЧЕННОЙ СУММЕ",
+    "source": "https://rika.kz/ru/publikatsii/article/obrazets-zayavleniya-po-oshibochno-oplachennoy-summe.html",
+    "files": [
+      {
+        "title": "Скачать документ.docx",
+        "href": "documents/obrazets-zayavleniya-po-oshibochno--0.docx",
+        "source": "https://rika.kz/upload/file/Заявление%20на%20возврат%20средств%20по%20ошибочно%20оплаченной%20сумме%20new.docx",
+        "bytes": 13168
+      }
+    ]
+  },
+  {
+    "slug": "zayavka-na-predostavlenie-informatsii-iz-arkhiva",
+    "title": "ЗАЯВКА НА ПРЕДОСТАВЛЕНИЕ ИНФОРМАЦИИ ИЗ АРХИВА",
+    "source": "https://rika.kz/ru/publikatsii/article/zayavka-na-predostavlenie-informatsii-iz-arkhiva.html",
+    "files": [
+      {
+        "title": "Скачать файл .docx",
+        "href": "documents/zayavka-na-predostavlenie-informats-0.doc",
+        "source": "https://rika.kz/upload/file/Заявка%20на%20инф.%20из%20архива!.doc",
+        "bytes": 29184
+      },
+      {
+        "title": "Скачать файл .pdf",
+        "href": "documents/zayavka-na-predostavlenie-informats-1.pdf",
+        "source": "https://rika.kz/upload/file/Заявка%20на%20инф.%20из%20архива!.pdf",
+        "bytes": 91721
+      }
+    ]
+  },
+  {
+    "slug": "otmena-poroga-besposhlinnogo-vvoza-eur-150-dlya-otpravleniy-v-evropeyskiy-soyuz",
+    "title": "ОТМЕНА ПОРОГА БЕСПОШЛИННОГО ВВОЗА EUR 150 ДЛЯ ОТПРАВЛЕНИЙ В ЕВРОПЕЙСКИЙ СОЮЗ",
+    "source": "https://rika.kz/ru/publikatsii/article/otmena-poroga-besposhlinnogo-vvoza-eur-150-dlya-otpravleniy-v-evropeyskiy-soyuz.html",
+    "files": []
+  },
+  {
+    "slug": "eksportnoe-tamozhennoe-oformlenie-v-strany-dalnego-zarubezhya-ot-yuridicheskogo-litsa",
+    "title": "Экспортное таможенное оформление в страны дальнего зарубежья от юридического лица",
+    "source": "https://rika.kz/ru/publikatsii/article/eksportnoe-tamozhennoe-oformlenie-v-strany-dalnego-zarubezhya-ot-yuridicheskogo-litsa.html",
+    "files": []
+  },
+  {
+    "slug": "priem-i-perevozka-sanktsionnykh-tovarov-proizvedyennykh-v-rossiyskoy-federatsii-i-respublike-belarus",
+    "title": "Прием и перевозка санкционных товаров, произведённых в Российской Федерации и, Республике Беларусь.",
+    "source": "https://rika.kz/ru/publikatsii/article/priem-i-perevozka-sanktsionnykh-tovarov-proizvedyennykh-v-rossiyskoy-federatsii-i-respublike-belarus.html",
+    "files": []
+  },
+  {
+    "slug": "tamozhennaya-ochistka-v-stranakh-sng-i-dalnego-zarubezhya",
+    "title": "Таможенная очистка в странах СНГ и дальнего зарубежья.",
+    "source": "https://rika.kz/ru/publikatsii/article/tamozhennaya-ochistka-v-stranakh-sng-i-dalnego-zarubezhya.html",
+    "files": []
+  },
+  {
+    "slug": "zapreshchennye-vlozheniya",
+    "title": "ЗАПРЕЩЕННЫЕ ВЛОЖЕНИЯ",
+    "source": "https://rika.kz/ru/publikatsii/article/zapreshchennye-vlozheniya.html",
+    "files": []
+  },
+  {
+    "slug": "pravila-podachi-zayavok",
+    "title": "ПРАВИЛА ПОДАЧИ ЗАЯВОК",
+    "source": "https://rika.kz/ru/publikatsii/article/pravila-podachi-zayavok.html",
+    "files": []
+  }
+]

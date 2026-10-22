@@ -82,7 +82,7 @@ const taskCards=`<section class="container audience-grid">${a('private.html','pr
 const privateZones=JSON.parse(fs.readFileSync(path.join(root,'tools/zones.json'),'utf8').replace(/^\uFEFF/,''));
 const officialTables=JSON.parse(fs.readFileSync(path.join(root,'tools/official-tables.json'),'utf8'));
 const tableSources={'service-documents.html':'https://rika.kz/ru/service/dokumenty-sng-dz/','service-international.html':'https://rika.kz/ru/service/posylky-sng-dz/','extra-services.html':'https://rika.kz/ru/publikatsii/article/dopolnitelnye-uslugi.html'};
-const businessOnly=['Аксай','Балхаш','Бесагаш','Боралдай','Казцик','Каскелен','Косшы','Отеген-батыр','Талгар','Темиртау','Теректы','Щучинск','Хромтау'];
+const businessOnly=[];
 const routeCities=[...new Set([...privateZones.map(z=>z.city.ru),...businessOnly,...cities])].sort((a,b)=>a.localeCompare(b,'ru'));
 const routeSearch=`<section class="container route-search"><h2>${tr('routeTitle')}</h2><p>${tr('routeLead')}</p><div class="form-grid"><label>${tr('personType')}<select id="route-person"><option value="private" data-i18n="privatePerson">Физическое лицо</option><option value="business" data-i18n="legalPerson">Юридическое лицо</option></select></label>${['from','to'].map((side,i)=>`<label>${tr(i?'toCity':'fromCity')}<select id="route-${side}">${routeCities.map(c=>`<option ${c===(i?'Алматы':'Астана')?'selected':''}>${esc(c)}</option>`).join('')}</select></label>`).join('')}</div><div id="route-result" role="status"></div><div class="task-grid">${a('calculator.html','calculatorAction')}${a('tariffs.html','tariffs')}${a('courier.html','courierAction')}</div></section>`;
 write('route-data.js','window.RIKA_ROUTE_DATA='+JSON.stringify({privateZones,businessOnly})+';');

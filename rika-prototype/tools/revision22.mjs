@@ -56,7 +56,7 @@ const extraSection=`<section class="container extras-section" id="extra-services
 for(const file of ['private.html','service-business.html']){
  let h=read(file).replace(/<details class="client-zone"><summary>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g,(_,title,body)=>`<article class="client-zone"><h3>${title}</h3>${body}</article>`);
  let index=0;h=h.replace(/(<article class="client-zone"><h3>[\s\S]*?<\/h3>)([\s\S]*?)(<\/article>)/g,(_,start,body,end)=>{const i=index++;return start+(i===2?t('zoneThreeCities','p'):i<2?`${t(i?'zoneIntercityLead':'zoneLocalLead','p')}${t('zoneBaseCities','p')}`:t('zoneOtherLead','p'))+end;});
- h=h.replace('</main>',extraSection+'</main>');write(file,h);
+ h=file==='service-business.html'?h.replace('<section id="contract"',extraSection+'<section id="contract"'):h.replace('</main>',extraSection+'</main>');write(file,h);
 }
 for(const file of ['index.html','courier.html']){
  let h=read(file).replace(/<form class="courier-whatsapp-form">[\s\S]*?<\/form>/,form=>form.replace(/<label class="courier-simple-check">[\s\S]*?<\/label>/,'').replace('<label class="full-span">',`<label>${t('binIin')}<input name="bin" required inputmode="numeric" pattern="[0-9]{12}" minlength="12" maxlength="12" autocomplete="off"></label><label class="full-span">`).replace(/<div class="courier-wa-result"[^>]*><\/div>/,''));write(file,h);
